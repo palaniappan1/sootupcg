@@ -10,6 +10,7 @@ import sootup.java.core.views.JavaView;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,8 +24,10 @@ public class Main {
         AnalysisInputLocation inputLocation2 =
                 new JavaClassPathAnalysisInputLocation(
                     "D:\\UPB\\Thesis\\sootupcg\\lib\\rt.jar");
-
-        JavaView view = new JavaView(new AnalysisInputLocation[]{inputLocation1, inputLocation2});
+        ArrayList<AnalysisInputLocation> analysisInputLocations = new ArrayList<>();
+        analysisInputLocations.add(inputLocation1);
+        analysisInputLocations.add(inputLocation2);
+        JavaView view = new JavaView(analysisInputLocations);
         CallGraphAlgorithm cg;
         if(args[1].equals("CHA")) {
             cg = new ClassHierarchyAnalysisAlgorithm(view);
