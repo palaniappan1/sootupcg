@@ -1,6 +1,5 @@
 package org.example;
 
-
 import sootup.callgraph.CallGraphAlgorithm;
 import sootup.callgraph.ClassHierarchyAnalysisAlgorithm;
 import sootup.callgraph.RapidTypeAnalysisAlgorithm;
@@ -18,10 +17,14 @@ public class Main {
             System.err.println("Need two parameters, but only one given..");
             return;
         }
-        AnalysisInputLocation inputLocation =
+        AnalysisInputLocation inputLocation1 =
                 new JavaClassPathAnalysisInputLocation(
                         args[0]);
-        JavaView view = new JavaView(inputLocation);
+        AnalysisInputLocation inputLocation2 =
+                new JavaClassPathAnalysisInputLocation(
+                    "D:\\UPB\\Thesis\\sootupcg\\lib\\rt.jar");
+
+        JavaView view = new JavaView(new AnalysisInputLocation[]{inputLocation1, inputLocation2});
         CallGraphAlgorithm cg;
         if(args[1].equals("CHA")) {
             cg = new ClassHierarchyAnalysisAlgorithm(view);
