@@ -23,7 +23,7 @@ public class Main {
                         args[0]);
         AnalysisInputLocation inputLocation2 =
                 new JavaClassPathAnalysisInputLocation(
-                    "D:\\UPB\\Thesis\\sootupcg\\lib\\rt.jar");
+                    "lib/rt.jar");
         ArrayList<AnalysisInputLocation> analysisInputLocations = new ArrayList<>();
         analysisInputLocations.add(inputLocation1);
         analysisInputLocations.add(inputLocation2);
