@@ -4,13 +4,20 @@ import sootup.callgraph.CallGraphAlgorithm;
 import sootup.callgraph.ClassHierarchyAnalysisAlgorithm;
 import sootup.callgraph.RapidTypeAnalysisAlgorithm;
 import sootup.core.inputlocation.AnalysisInputLocation;
+import sootup.core.model.SootClass;
+import sootup.core.model.SootMethod;
+import sootup.core.model.SourceType;
+import sootup.core.signatures.MethodSignature;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
+import sootup.java.core.JavaIdentifierFactory;
+import sootup.java.core.types.JavaClassType;
 import sootup.java.core.views.JavaView;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +30,7 @@ public class Main {
                         args[0]);
         AnalysisInputLocation inputLocation2 =
                 new JavaClassPathAnalysisInputLocation(
-                    "D:\\UPB\\Thesis\\sootupcg\\lib\\rt.jar");
+                    "lib/rt.jar", SourceType.Library);
         ArrayList<AnalysisInputLocation> analysisInputLocations = new ArrayList<>();
         analysisInputLocations.add(inputLocation1);
         analysisInputLocations.add(inputLocation2);
